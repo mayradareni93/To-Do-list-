@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8"><!--formato de codificación de caracteres-->
+  <title>Todo list with AngularJS</title>
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css"><!--define un enlace de hoja de estilo al documento-->
+      <link rel="stylesheet" href="css/style.css"><!--define un enlace al documento css-->
+
+  
+</head>
+
+<body>
+  <html ng-app><!--etiqueta de identificación que la pagina esta hecha en angulars-->
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script><!-- utiliza un scrip externo en este caso el CDN de google para tener el framework de angulars y quede listo para utilizarlo-->
+    <script src="//use.edgefonts.net/vast-shadow:n4:all.js"></script><!-- atributo de un scrip externo para el uso de las letras-->
+    <script src="//use.edgefonts.net/vast-shadow:n4:all;megrim.js"></script>
+  </head>
+  <body> <!-- Código utilizado para colocar el encabezado de la pagina -->
+    <div class="todo-wrapper" ng-controller="TodoCtrl">
+      <h2>You've got <span class="emphasis">{{getTotalTodos()}}</span> things to do</h2>
+      <ul> <!-- Comienza la creación de la lista desordenada cuando se comienzan a ingresar y añadir datos en los campos-->
+        <li ng-repeat="todo in todos">
+          <input type="checkbox" ng-model="todo.done"/>
+          <span class="done-{{todo.done}}">{{todo.text}}</span>
+        </li>
+      </ul> <!-- Termina lista desordenada-->
+      <form><!-- permite al usuario la captura de texto -->
+        <input class="add-input" placeholder="I need to..." type="text" ng-model="formTodoText" ng-model-instant />
+        <button class="add-btn" ng-click="addTodo()"><h2>Add</h2></button><!-- Boton que permite añadir datos a la lista-->
+      </form>
+      
+      <button class="clear-btn" ng-click="clearCompleted()">Clear completed</button><!-- botón creado para eliminar datos seleccionados de la lista-->
+    </div>
+  </body>
+  
+</html>
+  <script src='http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.4/underscore-min.js'></script>
+
+    <script src="js/index.js"></script>
+
+</body>
+</html>
